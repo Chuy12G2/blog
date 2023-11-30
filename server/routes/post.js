@@ -1,15 +1,16 @@
-import { Router } from "express"
+import express from "express"
 import Post from "../models/post.js"
 import User from "../models/user.js"
+import { verifyToken } from "../middlewares/auth.js"
 
-const app = Router()
+const router = express.Router()
 
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   const posts = await Post.find({})
   res.status(200).json(posts)
 })
 
-app.post('/', async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   const admin = await User.findOne({ name: 'admin' })
   console.log('user', admin);
 
@@ -25,4 +26,4 @@ app.post('/', async (req, res) => {
 })
 
 
-export default app
+export default router
