@@ -4,6 +4,7 @@ import mongoose, { mongo } from "mongoose"
 // import User from "./models/user.js"
 // import Post from "./models/post.js"
 import postRouter from "./routes/post.js"
+import authRouter from "./routes/auth.js"
 
 dotenv.configDotenv()
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/post', postRouter)
+app.use('/auth', authRouter)
 
 
 mongoose.connect(process.env.MONGO_URI)
