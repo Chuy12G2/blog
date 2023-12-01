@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
+import cors from "cors"
 import mongoose, { mongo } from "mongoose"
 // import User from "./models/user.js"
 // import Post from "./models/post.js"
@@ -9,6 +10,8 @@ import authRouter from "./routes/auth.js"
 dotenv.configDotenv()
 
 const app = express()
+
+app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
