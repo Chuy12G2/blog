@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
 
 const PostDetail = ({ posts, setPosts }) => {
   const [name, setName] = useState('')
@@ -8,6 +9,16 @@ const PostDetail = ({ posts, setPosts }) => {
   const { id } = useParams()
   const currentPost = posts.find(post => post._id === id)
 
+  const updatePost = async (newComment) => {
+    await axios.post(`http://localhost:3000/post/${id}/comment`, newComment)
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err.message)
+    })
+
+  }
   const handlePostComment = (e) => {
     e.preventDefault()
 
@@ -15,11 +26,6 @@ const PostDetail = ({ posts, setPosts }) => {
       name: name,
       content: comment
     }
-
-    currentPost.comments.push(newComment)
-
-    setName('')
-    setComment('')
 
     const updatedPosts = posts.map(post => {
       if (post._id === id) {
@@ -29,7 +35,15 @@ const PostDetail = ({ posts, setPosts }) => {
       }
     })
 
+    currentPost.comments.push(newComment)
+
+    setName('')
+    setComment('')
+
     setPosts(updatedPosts)
+
+    updatePost(newComment)
+ 
   }
 
   return (
