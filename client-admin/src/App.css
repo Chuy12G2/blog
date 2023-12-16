@@ -7,10 +7,15 @@
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  margin: 0;
 }
 
 .login-form {
@@ -43,4 +48,108 @@
   width: 200px;
   align-self: center;
   padding: 5px 10px;
+}
+
+/*Header*/
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--celestial-blue);
+  color: white;
+  margin-bottom: 50px;
+}
+
+.header button{
+  border-radius: 5px;
+  border: 3px white solid;
+  background-color: var(--Sunglow);
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: white;
+}
+
+/*Posts*/
+.post{
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: justify;
+  border: 2px grey dotted;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+/*Post Detail*/
+.post-detail{
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.post-detail div p{
+  font-size: 14px;
+  margin: 0;
+  color: darkolivegreen
+}
+
+.post-detail div :nth-child(1){
+  font-weight: 900;
+  font-size: 16px;
+  color: black;
+}
+
+.form-comment{
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  font-size: 18px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.form-comment input{
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: var(--Sunglow);
+  font-size: 14px;
+  color: black;
+}
+
+.form-comment button{
+  border-radius: 5px;
+  border: 3px var(--gunmetal) solid;
+  background-color: var(--celestial-blue);
+  color: var(--gunmetal);
+  font-weight: bold;
+  font-size: 16px;
+  width: 200px;
+  align-self: center;
+  padding: 5px 10px;
+}
+
+.post-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.post-header :nth-child(2){
+  font-size: 2rem;
+}
+
+.post-header :nth-child(2) :hover{
+  cursor: pointer;
+  color: var(--celestial-blue);
+}
+
+.post-number-comments{
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
