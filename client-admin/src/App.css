@@ -153,3 +153,36 @@ body{
   gap: 15px;
   align-items: center;
 }
+
+/*Update Form*/
+.update-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgray;
+  padding: 30px;
+  width: 600px;
+}
+
+.post-detail textarea{
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  height: 400px;
+}
+
+.close-btn{
+  position: absolute;
+  top: 10;
+  right: 30px;
+  font-size: 30px;
+}
+
+.close-btn:hover{
+  cursor: pointer;
+  color: var(--blue);
+}

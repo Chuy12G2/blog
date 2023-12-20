@@ -4,10 +4,12 @@ import axios from 'axios'
 import '../App.css'
 import { MdOutlineInsertComment } from "react-icons/md"
 import { MdModeEdit } from "react-icons/md";
+import PostUpdate from './PostUpdate'
 
 const PostDetail = ({ posts, setPosts }) => {
   const [name, setName] = useState('')
   const [comment, setComment] = useState('')
+  const [showUpdateForm, setShowUpdateForm] = useState(false)
 
   const { id } = useParams()
   const currentPost = posts.find(post => post._id === id)
@@ -46,14 +48,17 @@ const PostDetail = ({ posts, setPosts }) => {
     setPosts(updatedPosts)
 
     updatePost(newComment)
+  }
 
+  const handleShowForm = () => {
+    setShowUpdateForm(!showUpdateForm)
   }
 
   return (
     <div className="post-detail">
       <header className='post-header'>
         <h1>{currentPost.title}</h1>
-        <MdModeEdit />
+        <MdModeEdit onClick={handleShowForm}/>
       </header>
       <p>{currentPost.author.name}</p>
       <p>{currentPost.content}</p>
@@ -76,7 +81,11 @@ const PostDetail = ({ posts, setPosts }) => {
         <input className='input-comment' type='text' placeholder='Write a comment' id='comment' value={comment} onChange={(e) => setComment(e.target.value)} />
         <button className='btn-comment' type='submit' onClick={handlePostComment}>Comment</button>
       </form>
+
+      {showUpdateForm && <PostUpdate id={id} posts={posts} setPosts={setPosts} currentPost={currentPost} setShowUpdateForm={setShowUpdateForm}/>}
     </div>
+  
+    
   )
 }
 

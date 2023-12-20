@@ -9,13 +9,13 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
-
   const [token, setToken] = useState(null)
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
       setToken(token)
     }
   }, [])
