@@ -4,6 +4,7 @@ import LoginForm from './components/LoginForm'
 import Header from './components/Header'
 import Posts from './components/Posts'
 import PostDetail from './components/PostDetail'
+import NewPostForm from './components/NewPostForm'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
@@ -39,6 +40,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Posts posts={posts} />} />
           <Route path='/:id' element={<PostDetail posts={posts} setPosts={setPosts} />} />
+          <Route path='/create' element={<NewPostForm setPosts={setPosts} posts={posts}/>}></Route>
         </Routes>
       </>  
       }

@@ -186,3 +186,48 @@ body{
   cursor: pointer;
   color: var(--blue);
 }
+
+
+/*New Post Form*/
+.new-post-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.new-post-form label{
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.new-post-form input{
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: var(--Sunglow);
+  font-size: 14px;
+}
+
+.new-post-form textarea{
+  height: 400px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  background-color: var(--Sunglow);
+  font-size: 16px;
+}
+
+.new-post-form button{
+  border-radius: 5px;
+  border: 3px var(--gunmetal) solid;
+  background-color: var(--celestial-blue);
+  color: var(--gunmetal);
+  font-weight: bold;
+  font-size: 16px;
+  width: 200px;
+  align-self: center;
+  padding: 5px 10px;
+}
+
