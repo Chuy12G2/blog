@@ -3,13 +3,15 @@ import { useState } from 'react'
 import axios from 'axios'
 import '../App.css'
 import { MdOutlineInsertComment } from "react-icons/md"
-import { MdModeEdit } from "react-icons/md";
+import { MdModeEdit, MdDelete } from "react-icons/md";
 import PostUpdate from './PostUpdate'
+import DeletePopup from './DeletePopup'
 
 const PostDetail = ({ posts, setPosts }) => {
   const [name, setName] = useState('')
   const [comment, setComment] = useState('')
   const [showUpdateForm, setShowUpdateForm] = useState(false)
+  const [showDeletePopup, setShowDeletePopup] = useState(false)
 
   const { id } = useParams()
   const currentPost = posts.find(post => post._id === id)
@@ -54,11 +56,16 @@ const PostDetail = ({ posts, setPosts }) => {
     setShowUpdateForm(!showUpdateForm)
   }
 
+  const handleShowDeletePopup = () => {
+    setShowDeletePopup(!showDeletePopup)
+  }
+
   return (
     <div className="post-detail">
       <header className='post-header'>
         <h1>{currentPost.title}</h1>
         <MdModeEdit onClick={handleShowForm}/>
+        <MdDelete onClick={handleShowDeletePopup}/>
       </header>
       <p>{currentPost.author.name}</p>
       <p>{currentPost.content}</p>
@@ -83,6 +90,7 @@ const PostDetail = ({ posts, setPosts }) => {
       </form>
 
       {showUpdateForm && <PostUpdate id={id} posts={posts} setPosts={setPosts} currentPost={currentPost} setShowUpdateForm={setShowUpdateForm}/>}
+      {showDeletePopup && <DeletePopup id={id} setShowDeletePopup={setShowDeletePopup}/>}
     </div>
   
     

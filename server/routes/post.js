@@ -87,7 +87,7 @@ router.delete('/:id', verifyToken, async (req, res) => {
     return res.status(404).json({ message: 'Post not found' })
   }
 
-  await post.delete()
+  await Post.deleteOne({ _id: id })
 
   res.status(200).json({ message: 'Post deleted' })
 })

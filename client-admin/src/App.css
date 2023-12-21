@@ -55,10 +55,14 @@ body{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  padding: 10px 30px;
   background-color: var(--celestial-blue);
   color: white;
   margin-bottom: 50px;
+}
+
+.header h1{
+  margin-right: auto;
 }
 
 .header button{
@@ -69,6 +73,17 @@ body{
   font-size: 16px;
   padding: 5px 10px;
   color: white;
+  margin-right: 15px;
+}
+
+.header a{
+  background-color: var(--Sunglow);
+  text-decoration: none;
+  color: white;
+  border: 3px white solid;
+  border-radius: 5px;
+  font-family: sans-serif;
+  padding: 5px 10px;
 }
 
 /*Posts*/
@@ -132,6 +147,7 @@ body{
   padding: 5px 10px;
 }
 
+/*Post Header*/
 .post-header{
   display: flex;
   justify-content: space-between;
@@ -139,13 +155,24 @@ body{
   font-size: 1rem;
 }
 
-.post-header :nth-child(2){
-  font-size: 2rem;
+.post-header h1{
+  margin-right: auto;
 }
+
+.post-header :nth-child(2), .post-header :nth-child(3){
+  font-size: 2rem;
+  padding: 0 15px;
+}
+
 
 .post-header :nth-child(2) :hover{
   cursor: pointer;
   color: var(--celestial-blue);
+}
+
+.post-header :nth-child(3) :hover{
+  cursor: pointer;
+  color: red;
 }
 
 .post-number-comments{
@@ -231,3 +258,36 @@ body{
   padding: 5px 10px;
 }
 
+/*Delte Popup*/
+.delete-popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgray;
+  padding: 30px;
+  height: 300px;
+  width: 400px;
+  border: var(--gunmetal) 3px solid;
+}
+
+.delete-popup h2{
+  margin : 30px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.delete-popup-buttons{
+  display: flex;
+  justify-content: space-around; 
+}
+
+.delete-popup-buttons button{
+  border-radius: 5px;
+  border: 3px var(--gunmetal) solid;
+  background-color: var(--celestial-blue);
+  font-weight: bold;
+  font-size: 16px;
+  width: 150px;
+  padding: 5px 10px;
+}
