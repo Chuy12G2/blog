@@ -5,10 +5,10 @@ const Post = ({ post }) => {
 
   return (
     <div className='post'>
-      <Link to={post._id}>{post.title}</Link>
+      <Link to={post._id} className='post-title'>{post.title}</Link>
       <p>{post.author.name}</p>
       <p>{post.content}</p>
-      <Link to={post._id}>Read More</Link>
+      <Link to={post._id} className='post-read-more'>Read More...</Link>
       <div className='post-bottom'>
         <MdOutlineInsertComment />
         <span> Comments {post.comments.length}</span>
